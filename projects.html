@@ -1,166 +1,272 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>PROJECTS — PAPER PROD. 26</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     background:#050505;
     color:#f5f5f5;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
 }
 
-a{color:inherit;text-decoration:none}
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/* ================= NAV ================= */
 
 nav{
     position:fixed;
-    width:100%;
     top:0;
     left:0;
+    width:100%;
     padding:25px 35px;
     display:flex;
     justify-content:space-between;
-    z-index:50;
+    align-items:center;
+    z-index:1000;
     mix-blend-mode:difference;
 }
 
 .logo{
+    font-size:14px;
     font-weight:900;
+    letter-spacing:-1px;
 }
 
 .navlinks{
     display:flex;
-    gap:25px;
-    font-size:11px;
-    letter-spacing:2px;
+    gap:28px;
 }
 
+.navlinks a{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.navlinks a:hover{
+    opacity:.4;
+}
+
+/* ================= HERO ================= */
+
 .hero{
-    min-height:80vh;
-    padding:150px 5vw 50px;
+    min-height:90vh;
+    padding:150px 5vw 60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
     border-bottom:1px solid #222;
 }
 
-.hero small{
+.hero-label{
+    font-size:11px;
     letter-spacing:4px;
     color:#777;
 }
 
 .hero h1{
-    font-size:clamp(80px,17vw,250px);
-    letter-spacing:-12px;
-    line-height:.75;
-    margin-top:70px;
+    font-size:clamp(85px,17vw,250px);
+    line-height:.7;
+    letter-spacing:-13px;
+    text-transform:uppercase;
 }
 
 .hero h1 span{
-    margin-left:15vw;
+    display:block;
+    margin-left:13vw;
 }
 
-.projects{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:2px;
-    background:#222;
-}
+/* ================= INTRO ================= */
 
-.project{
-    min-height:600px;
-    background:#080808;
-    position:relative;
-    padding:30px;
-    overflow:hidden;
+.intro{
+    padding:100px 8vw;
     display:flex;
-    flex-direction:column;
     justify-content:space-between;
-    transition:.5s;
+    gap:50px;
 }
 
-.project:hover{
+.intro h2{
+    font-size:clamp(40px,6vw,90px);
+    line-height:.85;
+    letter-spacing:-5px;
+}
+
+.intro p{
+    max-width:420px;
+    color:#777;
+    line-height:1.7;
+    align-self:flex-end;
+}
+
+/* ================= PROJECT GALLERY ================= */
+
+.gallery{
+    width:100%;
+}
+
+/* Main large image */
+
+.project-large{
+    width:100%;
+    min-height:90vh;
+    position:relative;
+    overflow:hidden;
     background:#111;
 }
 
-.project-bg{
+.project-large img{
+    width:100%;
+    height:100%;
+    min-height:90vh;
+    object-fit:cover;
+    display:block;
+    transition:transform 1.2s ease;
+}
+
+.project-large:hover img{
+    transform:scale(1.04);
+}
+
+.project-overlay{
     position:absolute;
     inset:0;
-    opacity:.15;
-    transition:.7s;
-}
-
-.project:hover .project-bg{
-    transform:scale(1.1);
-}
-
-.bg1{
-    background:
-    linear-gradient(135deg,transparent 40%,white 41%,transparent 42%),
-    radial-gradient(circle at 70% 60%,white,transparent 20%);
-}
-
-.bg2{
-    background:
-    repeating-linear-gradient(45deg,#fff 0 1px,transparent 1px 25px);
-}
-
-.bg3{
-    background:
-    radial-gradient(circle at center,white,transparent 30%),
-    linear-gradient(90deg,transparent 50%,white 50%);
-}
-
-.bg4{
-    background:
-    linear-gradient(45deg,white 0 2px,transparent 2px 30px);
-}
-
-.project-info{
-    position:relative;
-    z-index:2;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:35px;
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.45),
+        transparent 35%,
+        transparent 65%,
+        rgba(0,0,0,.55)
+    );
 }
 
 .project-number{
     font-size:11px;
-    color:#777;
+    letter-spacing:3px;
 }
 
-.project h2{
-    font-size:clamp(45px,6vw,90px);
-    letter-spacing:-4px;
-    margin-top:15px;
-}
-
-.project-bottom{
-    position:relative;
-    z-index:2;
+.project-title{
     display:flex;
     justify-content:space-between;
-    font-size:11px;
-    letter-spacing:2px;
+    align-items:end;
+}
+
+.project-title h2{
+    font-size:clamp(55px,9vw,130px);
+    line-height:.75;
+    letter-spacing:-7px;
     text-transform:uppercase;
 }
 
+.project-title span{
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+/* Two image spread */
+
+.project-spread{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2px;
+    background:#222;
+}
+
+.project-image{
+    min-height:75vh;
+    position:relative;
+    overflow:hidden;
+    background:#111;
+}
+
+.project-image img{
+    width:100%;
+    height:100%;
+    min-height:75vh;
+    object-fit:cover;
+    display:block;
+    transition:transform 1s ease;
+}
+
+.project-image:hover img{
+    transform:scale(1.05);
+}
+
+.image-label{
+    position:absolute;
+    left:25px;
+    bottom:25px;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    text-shadow:0 2px 10px #000;
+}
+
+/* Last image */
+
+.project-final{
+    width:100%;
+    min-height:85vh;
+    position:relative;
+    overflow:hidden;
+}
+
+.project-final img{
+    width:100%;
+    height:100%;
+    min-height:85vh;
+    object-fit:cover;
+    display:block;
+    transition:transform 1s ease;
+}
+
+.project-final:hover img{
+    transform:scale(1.04);
+}
+
+/* ================= STATEMENT ================= */
+
 .statement{
-    padding:180px 8vw;
+    min-height:90vh;
+    padding:150px 8vw;
+    display:flex;
+    align-items:center;
 }
 
 .statement h2{
-    font-size:clamp(50px,8vw,120px);
-    line-height:.85;
-    letter-spacing:-6px;
+    font-size:clamp(55px,9vw,140px);
+    line-height:.8;
+    letter-spacing:-8px;
+    text-transform:uppercase;
 }
 
-.statement p{
-    max-width:500px;
-    color:#777;
-    margin-top:50px;
-    line-height:1.7;
+.statement h2 span{
+    color:#666;
 }
+
+/* ================= FOOTER ================= */
 
 footer{
     border-top:1px solid #222;
@@ -168,120 +274,287 @@ footer{
     display:flex;
     justify-content:space-between;
     color:#777;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:2px;
+    text-transform:uppercase;
 }
 
+/* ================= MOBILE ================= */
+
 @media(max-width:700px){
-    nav{padding:20px}
-    .navlinks{gap:10px;font-size:8px}
-    .projects{grid-template-columns:1fr}
-    .project{min-height:500px}
-    footer{flex-direction:column;gap:20px}
+
+    nav{
+        padding:20px;
+    }
+
+    .navlinks{
+        gap:10px;
+    }
+
+    .navlinks a{
+        font-size:8px;
+        letter-spacing:1px;
+    }
+
+    .hero{
+        min-height:75vh;
+        padding:130px 25px 40px;
+    }
+
+    .hero h1{
+        letter-spacing:-7px;
+    }
+
+    .intro{
+        padding:80px 25px;
+        flex-direction:column;
+    }
+
+    .project-large img{
+        min-height:65vh;
+    }
+
+    .project-overlay{
+        padding:25px;
+    }
+
+    .project-title{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .project-title h2{
+        letter-spacing:-4px;
+    }
+
+    .project-spread{
+        grid-template-columns:1fr;
+    }
+
+    .project-image,
+    .project-image img{
+        min-height:70vh;
+    }
+
+    .project-final,
+    .project-final img{
+        min-height:65vh;
+    }
+
+    .statement{
+        padding:100px 25px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:20px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= NAVIGATION ================= -->
+
 <nav>
-    <a href="index.html" class="logo">PAPER PROD. 26</a>
+
+    <a href="index.html" class="logo">
+        PAPER PROD. 26
+    </a>
 
     <div class="navlinks">
+
         <a href="world.html">WORLD</a>
+
         <a href="projects.html">PROJECTS</a>
+
         <a href="archive.html">ARCHIVE</a>
+
         <a href="index.html">HOME</a>
+
     </div>
+
 </nav>
 
+
+<!-- ================= HERO ================= -->
+
 <section class="hero">
-    <small>03 — PAPER PRODUCTIONS / PROJECTS</small>
+
+    <div class="hero-label">
+        03 — PAPER PRODUCTIONS / PROJECTS
+    </div>
 
     <h1>
         THE
         <span>WORK.</span>
     </h1>
-</section>
-
-<section class="projects">
-
-    <article class="project">
-        <div class="project-bg bg1"></div>
-
-        <div class="project-info">
-            <div class="project-number">PROJECT 001</div>
-            <h2>FIRST<br>MOVEMENT</h2>
-        </div>
-
-        <div class="project-bottom">
-            <span>Fashion / Film</span>
-            <span>2026</span>
-        </div>
-    </article>
-
-    <article class="project">
-        <div class="project-bg bg2"></div>
-
-        <div class="project-info">
-            <div class="project-number">PROJECT 002</div>
-            <h2>PAPER<br>PEOPLE</h2>
-        </div>
-
-        <div class="project-bottom">
-            <span>Portrait / Culture</span>
-            <span>2026</span>
-        </div>
-    </article>
-
-    <article class="project">
-        <div class="project-bg bg3"></div>
-
-        <div class="project-info">
-            <div class="project-number">PROJECT 003</div>
-            <h2>ON THE<br>MOVE</h2>
-        </div>
-
-        <div class="project-bottom">
-            <span>Skate / Street</span>
-            <span>2026</span>
-        </div>
-    </article>
-
-    <article class="project">
-        <div class="project-bg bg4"></div>
-
-        <div class="project-info">
-            <div class="project-number">PROJECT 004</div>
-            <h2>TO THE<br>WORLD</h2>
-        </div>
-
-        <div class="project-bottom">
-            <span>Art / Community</span>
-            <span>2026</span>
-        </div>
-    </article>
 
 </section>
 
-<section class="statement">
+
+<!-- ================= INTRO ================= -->
+
+<section class="intro">
+
     <h2>
-        EVERY<br>
-        PROJECT<br>
-        STARTS AS<br>
-        AN IDEA.
+        IDEAS<br>
+        BECOME<br>
+        REAL.
     </h2>
 
     <p>
-        Photography. Film. Fashion. Music. Skateboarding. Art.
-        Projects are where ideas leave the page and enter the real world.
+        A visual record of Paper Productions.
+        Photography, fashion, movement, people,
+        culture and everything created along the way.
     </p>
+
 </section>
 
+
+<!-- ================= PROJECT GALLERY ================= -->
+
+<section class="gallery">
+
+
+    <!-- IMAGE 01 — LARGE FEATURE -->
+
+    <article class="project-large">
+
+        <img
+            src="https://i.imgur.com/PJcRVS5.jpeg"
+            alt="Paper Productions Project 01"
+        >
+
+        <div class="project-overlay">
+
+            <div class="project-number">
+                PROJECT 001 — PAPER PEOPLE
+            </div>
+
+            <div class="project-title">
+
+                <h2>
+                    PAPER<br>
+                    PEOPLE
+                </h2>
+
+                <span>
+                    PORTRAIT / CULTURE / 2026
+                </span>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- IMAGE 02 + IMAGE 03 -->
+
+    <div class="project-spread">
+
+
+        <article class="project-image">
+
+            <img
+                src="https://i.imgur.com/kDI0Iny.jpeg"
+                alt="Paper Productions Project 02"
+            >
+
+            <div class="image-label">
+                002 — ON THE MOVE
+            </div>
+
+        </article>
+
+
+        <article class="project-image">
+
+            <img
+                src="https://i.imgur.com/rKRRrNw.jpeg"
+                alt="Paper Productions Project 03"
+            >
+
+            <div class="image-label">
+                003 — STREET / MOTION
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+    <!-- IMAGE 04 — FULL WIDTH -->
+
+    <article class="project-final">
+
+        <img
+            src="https://i.imgur.com/JsWojaY.jpeg"
+            alt="Paper Productions Project 04"
+        >
+
+        <div class="project-overlay">
+
+            <div class="project-number">
+                PROJECT 004 — TO THE WORLD
+            </div>
+
+            <div class="project-title">
+
+                <h2>
+                    TO THE<br>
+                    WORLD.
+                </h2>
+
+                <span>
+                    PAPER PROD. 26
+                </span>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+</section>
+
+
+<!-- ================= STATEMENT ================= -->
+
+<section class="statement">
+
+    <h2>
+        THIS IS<br>
+        ONLY THE<br>
+        <span>BEGINNING.</span>
+    </h2>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
-    <span>PAPER PROD. 26</span>
-    <span>FROM IDEA TO REALITY</span>
+
+    <span>
+        PAPER PROD. 26
+    </span>
+
+    <span>
+        FROM IDEA TO REALITY
+    </span>
+
+    <span>
+        TO THE WORLD
+    </span>
+
 </footer>
+
 
 </body>
 </html>
