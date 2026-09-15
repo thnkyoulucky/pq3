@@ -1,931 +1,434 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PAPER PROD 2 TW</title>
+<title>PAPER PROD. 26 — TO THE WORLD</title>
 
 <style>
-/* =========================
-   RESET
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    background: #080808;
-    color: #f5f5f5;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+body{
+    background:#050505;
+    color:#f5f5f5;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
+/* ================= NAV ================= */
 
-/* =========================
-   LOADING SCREEN
-========================= */
-
-#loader {
-    position: fixed;
-    inset: 0;
-    background: #080808;
-    z-index: 9999;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transition: opacity 0.8s ease;
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:25px 35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    mix-blend-mode:difference;
 }
 
-#loader.hide {
-    opacity: 0;
-    pointer-events: none;
+.logo{
+    font-weight:900;
+    font-size:14px;
+    letter-spacing:-1px;
 }
 
-.loader-content {
-    text-align: center;
+.navlinks{
+    display:flex;
+    gap:28px;
 }
 
-.loader-logo {
-    font-size: clamp(35px, 7vw, 90px);
-    font-weight: 900;
-    letter-spacing: -5px;
+.navlinks a{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    transition:.3s;
 }
 
-.loader-small {
-    margin-top: 15px;
-    color: #888;
-    font-size: 10px;
-    letter-spacing: 5px;
+.navlinks a:hover{
+    opacity:.4;
 }
 
+/* ================= HERO ================= */
 
-/* =========================
-   NAVIGATION
-========================= */
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 80px;
-
-    padding: 0 5vw;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    z-index: 100;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(8,8,8,.9),
-        transparent
-    );
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:40px;
+    overflow:hidden;
 }
 
-.logo {
-    font-weight: 900;
-    font-size: 14px;
-    letter-spacing: -0.5px;
+.hero-circle{
+    position:absolute;
+    width:70vw;
+    height:70vw;
+    max-width:900px;
+    max-height:900px;
+    border:1px solid #292929;
+    border-radius:50%;
+    right:-18%;
+    top:5%;
+    animation:rotate 35s linear infinite;
 }
 
-.nav-links {
-    display: flex;
-    gap: 30px;
+.hero-circle::before{
+    content:"";
+    position:absolute;
+    inset:12%;
+    border:1px solid #242424;
+    border-radius:50%;
 }
 
-.nav-links a {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #aaa;
-
-    transition: color .3s ease;
+.hero-circle::after{
+    content:"";
+    position:absolute;
+    inset:30%;
+    border:1px solid #333;
+    border-radius:50%;
 }
 
-.nav-links a:hover {
-    color: white;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
-
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    padding: 120px 5vw 80px;
-
-    overflow: hidden;
-}
-
-.hero-background {
-    position: absolute;
-
-    width: 70vw;
-    height: 70vw;
-
-    right: -25vw;
-    bottom: -35vw;
-
-    border: 1px solid #242424;
-    border-radius: 50%;
-
-    animation: rotateCircle 30s linear infinite;
-}
-
-.hero-background::after {
-    content: "";
-
-    position: absolute;
-
-    width: 65%;
-    height: 65%;
-
-    top: 17%;
-    left: 17%;
-
-    border: 1px solid #1c1c1c;
-    border-radius: 50%;
-}
-
-@keyframes rotateCircle {
-
-    from {
-        transform: rotate(0deg);
+@keyframes rotate{
+    from{
+        transform:rotate(0deg);
     }
 
-    to {
-        transform: rotate(360deg);
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.hero-label{
+    position:relative;
+    z-index:2;
+    font-size:11px;
+    letter-spacing:4px;
+    margin-bottom:25px;
+    color:#aaa;
+}
+
+.hero h1{
+    position:relative;
+    z-index:2;
+    font-size:clamp(90px,18vw,270px);
+    line-height:.7;
+    letter-spacing:-13px;
+    text-transform:uppercase;
+}
+
+.hero h1 span{
+    display:block;
+    margin-left:12vw;
+}
+
+.scroll{
+    position:absolute;
+    right:40px;
+    bottom:35px;
+    font-size:10px;
+    letter-spacing:3px;
+    color:#777;
+    writing-mode:vertical-rl;
+}
+
+/* ================= MARQUEE ================= */
+
+.marquee{
+    overflow:hidden;
+    white-space:nowrap;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+    padding:20px 0;
+}
+
+.marquee-track{
+    display:inline-block;
+    animation:marquee 20s linear infinite;
+}
+
+.marquee span{
+    font-size:14px;
+    letter-spacing:4px;
+    margin-right:60px;
+}
+
+@keyframes marquee{
+    from{
+        transform:translateX(0);
     }
 
+    to{
+        transform:translateX(-50%);
+    }
 }
 
+/* ================= MANIFESTO ================= */
 
-.hero-content {
-    position: relative;
-    z-index: 2;
+.manifesto{
+    min-height:80vh;
+    padding:150px 8vw;
+    display:flex;
+    align-items:center;
 }
 
-.small-title {
-    color: #d71932;
-
-    font-size: 11px;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 30px;
+.manifesto h2{
+    font-size:clamp(50px,8vw,120px);
+    line-height:.85;
+    letter-spacing:-6px;
+    text-transform:uppercase;
 }
 
-.hero-title {
-    font-size: clamp(70px, 15vw, 220px);
-
-    line-height: .75;
-
-    letter-spacing: -10px;
-
-    font-weight: 900;
+.manifesto h2 span{
+    color:#777;
 }
 
-.hero-title .outline {
-    color: transparent;
+/* ================= SECTIONS ================= */
 
-    -webkit-text-stroke: 1px white;
+.sections{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2px;
+    background:#222;
 }
 
-.hero-subtitle {
-    max-width: 450px;
-
-    margin-top: 50px;
-
-    color: #888;
-
-    font-size: 14px;
-
-    line-height: 1.7;
+.section-card{
+    min-height:600px;
+    background:#080808;
+    padding:30px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:.5s;
 }
 
-
-/* =========================
-   SCROLL INDICATOR
-========================= */
-
-.scroll-indicator {
-    position: absolute;
-
-    bottom: 35px;
-    left: 5vw;
-
-    font-size: 10px;
-
-    color: #777;
-
-    letter-spacing: 3px;
-
-    animation: bounce 2s infinite;
+.section-card:hover{
+    background:#111;
 }
 
-@keyframes bounce {
+.section-number{
+    color:#777;
+    font-size:11px;
+    letter-spacing:2px;
+}
 
-    0%,100% {
-        transform: translateY(0);
+.section-card h2{
+    position:relative;
+    z-index:2;
+    font-size:clamp(45px,6vw,90px);
+    line-height:.8;
+    letter-spacing:-5px;
+    text-transform:uppercase;
+}
+
+.section-card p{
+    position:relative;
+    z-index:2;
+    max-width:280px;
+    color:#777;
+    line-height:1.5;
+}
+
+.card-shape{
+    position:absolute;
+    width:450px;
+    height:450px;
+    border:1px solid #333;
+    border-radius:50%;
+    right:-200px;
+    top:100px;
+    transition:.8s;
+}
+
+.section-card:hover .card-shape{
+    transform:scale(1.3) rotate(30deg);
+}
+
+.card-arrow{
+    position:absolute;
+    right:30px;
+    bottom:30px;
+    font-size:30px;
+    z-index:3;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    min-height:80vh;
+    padding:150px 8vw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:clamp(60px,11vw,170px);
+    line-height:.8;
+    letter-spacing:-8px;
+    text-transform:uppercase;
+}
+
+.cta h2 span{
+    color:#777;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid #222;
+    padding:35px;
+    display:flex;
+    justify-content:space-between;
+    color:#777;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    nav{
+        padding:20px;
     }
 
-    50% {
-        transform: translateY(8px);
+    .navlinks{
+        gap:10px;
     }
 
-}
-
-
-/* =========================
-   MARQUEE
-========================= */
-
-.marquee {
-    overflow: hidden;
-
-    border-top: 1px solid #222;
-    border-bottom: 1px solid #222;
-
-    padding: 20px 0;
-
-    white-space: nowrap;
-}
-
-.marquee-track {
-    display: inline-block;
-
-    animation: marquee 18s linear infinite;
-}
-
-.marquee-track span {
-    font-size: clamp(35px, 5vw, 70px);
-
-    font-weight: 900;
-
-    margin-right: 60px;
-
-    letter-spacing: -3px;
-}
-
-.marquee-track span:nth-child(even) {
-    color: transparent;
-
-    -webkit-text-stroke: 1px #777;
-}
-
-@keyframes marquee {
-
-    from {
-        transform: translateX(0);
+    .navlinks a{
+        font-size:8px;
+        letter-spacing:1px;
     }
 
-    to {
-        transform: translateX(-50%);
+    .hero{
+        padding:25px;
     }
 
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-section {
-    padding: 150px 5vw;
-}
-
-.section-number {
-    color: #d71932;
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 30px;
-}
-
-.section-title {
-    font-size: clamp(55px, 9vw, 140px);
-
-    line-height: .8;
-
-    letter-spacing: -6px;
-
-    font-weight: 900;
-}
-
-
-/* =========================
-   MANIFESTO
-========================= */
-
-.manifesto {
-    min-height: 90vh;
-
-    display: flex;
-    align-items: center;
-}
-
-.manifesto-text {
-    font-size: clamp(45px, 8vw, 130px);
-
-    line-height: .85;
-
-    letter-spacing: -6px;
-
-    font-weight: 900;
-}
-
-.manifesto-text .dim {
-    color: #444;
-
-    transition: color .3s ease;
-}
-
-.manifesto-text .dim:hover {
-    color: white;
-}
-
-
-/* =========================
-   WORLD
-========================= */
-
-.world-description {
-    max-width: 600px;
-
-    margin-top: 40px;
-
-    color: #888;
-
-    line-height: 1.8;
-
-    font-size: 15px;
-}
-
-
-/* =========================
-   PROJECT GRID
-========================= */
-
-.projects {
-    margin-top: 100px;
-
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 25px;
-}
-
-.project {
-    position: relative;
-
-    overflow: hidden;
-
-    background: #111;
-
-    min-height: 550px;
-
-    cursor: pointer;
-}
-
-.project.large {
-    min-height: 700px;
-}
-
-.project-image {
-    width: 100%;
-    height: 100%;
-
-    min-height: inherit;
-
-    object-fit: cover;
-
-    display: block;
-
-    transition:
-        transform .8s ease,
-        filter .8s ease;
-}
-
-/*
-   PLACEHOLDER IMAGE DESIGN
-*/
-
-.image-placeholder {
-    width: 100%;
-    height: 100%;
-    min-height: inherit;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            #292929,
-            #0c0c0c 60%
-        );
-
-    color: #555;
-
-    font-size: 12px;
-
-    letter-spacing: 4px;
-}
-
-.project:hover .image-placeholder {
-    background:
-        radial-gradient(
-            circle at 70% 70%,
-            #333,
-            #080808 65%
-        );
-}
-
-.project:hover .project-image {
-    transform: scale(1.05);
-}
-
-.project-info {
-    position: absolute;
-
-    inset: 0;
-
-    padding: 30px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,.5),
-            transparent 45%,
-            rgba(0,0,0,.8)
-        );
-}
-
-.project-number {
-    font-size: 10px;
-
-    letter-spacing: 3px;
-}
-
-.project-name {
-    font-size: clamp(35px, 5vw, 70px);
-
-    font-weight: 900;
-
-    letter-spacing: -3px;
-}
-
-.project-category {
-    color: #bbb;
-
-    font-size: 10px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-
-    margin-top: 8px;
-}
-
-
-/* =========================
-   ARCHIVE
-========================= */
-
-.archive {
-    border-top: 1px solid #222;
-}
-
-.archive-list {
-    margin-top: 100px;
-}
-
-.archive-item {
-    display: grid;
-
-    grid-template-columns: 80px 1fr 180px;
-
-    align-items: center;
-
-    padding: 35px 0;
-
-    border-top: 1px solid #222;
-
-    transition:
-        padding .4s ease,
-        background .4s ease;
-}
-
-.archive-item:last-child {
-    border-bottom: 1px solid #222;
-}
-
-.archive-item:hover {
-    padding-left: 20px;
-    padding-right: 20px;
-
-    background: #0e0e0e;
-}
-
-.archive-number {
-    color: #d71932;
-
-    font-size: 11px;
-}
-
-.archive-name {
-    font-size: clamp(25px, 4vw, 60px);
-
-    font-weight: 800;
-
-    letter-spacing: -3px;
-}
-
-.archive-type {
-    color: #777;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-
-    text-align: right;
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about-grid {
-    margin-top: 100px;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10vw;
-}
-
-.about-large {
-    font-size: clamp(30px, 4vw, 60px);
-
-    line-height: 1;
-
-    letter-spacing: -3px;
-
-    font-weight: 700;
-}
-
-.about-small {
-    color: #888;
-
-    font-size: 15px;
-
-    line-height: 1.8;
-
-    max-width: 500px;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact {
-    min-height: 80vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    border-top: 1px solid #222;
-}
-
-.contact-title {
-    font-size: clamp(70px, 15vw, 220px);
-
-    line-height: .7;
-
-    letter-spacing: -10px;
-
-    font-weight: 900;
-}
-
-.contact-title span {
-    display: block;
-}
-
-.contact-button {
-    display: inline-block;
-
-    margin-top: 70px;
-
-    border-bottom: 1px solid white;
-
-    padding-bottom: 10px;
-
-    font-size: 11px;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    transition: color .3s ease;
-}
-
-.contact-button:hover {
-    color: #d71932;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    padding: 30px 5vw;
-
-    border-top: 1px solid #222;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    color: #555;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-.socials {
-    display: flex;
-
-    gap: 25px;
-}
-
-.socials a:hover {
-    color: white;
-}
-
-
-/* =========================
-   REVEAL ANIMATION
-========================= */
-
-.reveal {
-    opacity: 0;
-
-    transform: translateY(50px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width: 700px) {
-
-    nav {
-        height: 65px;
-
-        padding: 0 20px;
+    .hero h1{
+        letter-spacing:-7px;
     }
 
-    .nav-links {
-        gap: 12px;
+    .hero-circle{
+        width:100vw;
+        height:100vw;
+        right:-40%;
     }
 
-    .nav-links a {
-        font-size: 8px;
-        letter-spacing: 1px;
+    .sections{
+        grid-template-columns:1fr;
     }
 
-    .hero {
-        padding-left: 20px;
-        padding-right: 20px;
+    .section-card{
+        min-height:450px;
     }
 
-    .hero-title {
-        font-size: 22vw;
-        letter-spacing: -5px;
+    .manifesto{
+        padding:100px 25px;
     }
 
-    section {
-        padding: 100px 20px;
+    .cta{
+        padding:100px 25px;
     }
 
-    .projects {
-        grid-template-columns: 1fr;
-    }
-
-    .project,
-    .project.large {
-        min-height: 500px;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .archive-item {
-        grid-template-columns: 40px 1fr;
-        gap: 10px;
-    }
-
-    .archive-type {
-        grid-column: 2;
-
-        text-align: left;
-    }
-
-    footer {
-        flex-direction: column;
-
-        gap: 20px;
+    footer{
+        flex-direction:column;
+        gap:20px;
     }
 
 }
-
-
-/* =========================
-   RED SELECTION
-========================= */
-
-::selection {
-    background: #d71932;
-    color: white;
-}
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ==============================================
-     LOADING SCREEN
-================================================ -->
-
-<div id="loader">
-
-    <div class="loader-content">
-
-        <div class="loader-logo">
-            PAPER PROD.
-        </div>
-
-        <div class="loader-small">
-            TO THE WORLD — 26
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ==============================================
-     NAVIGATION
-================================================ -->
+<!-- ================= NAVIGATION ================= -->
 
 <nav>
 
-    <a href="#home" class="logo">
+    <a href="index.html" class="logo">
         PAPER PROD. 26
     </a>
 
-    <div class="nav-links">
+    <div class="navlinks">
 
-        <a href="#world">WORLD</a>
+        <a href="world.html">
+            WORLD
+        </a>
 
-        <a href="#projects">PROJECTS</a>
+        <a href="projects.html">
+            PROJECTS
+        </a>
 
-        <a href="#archive">ARCHIVE</a>
-
-        <a href="#about">ABOUT</a>
-
-        <a href="#contact">CONTACT</a>
+        <a href="archive.html">
+            ARCHIVE
+        </a>
 
     </div>
 
 </nav>
 
 
-<!-- ==============================================
-     HERO
-================================================ -->
+<!-- ================= HERO ================= -->
 
-<section class="hero" id="home">
+<section class="hero">
 
-    <div class="hero-background"></div>
+    <div class="hero-circle"></div>
 
-    <div class="hero-content">
-
-        <div class="small-title">
-            PAPER PRODUCTIONS — 2026
-        </div>
-
-        <h1 class="hero-title">
-
-            <span>PAPER</span>
-
-            <span class="outline">PROD.</span>
-
-        </h1>
-
-        <p class="hero-subtitle">
-
-            Culture. Community. Clothing. Photography.
-            Skating. Art. Music. Ideas.
-
-            <br><br>
-
-            From paper to reality.
-            From local to the world.
-
-        </p>
-
+    <div class="hero-label">
+        PAPER PRODUCTIONS — TO THE WORLD — 26
     </div>
 
-    <div class="scroll-indicator">
-        SCROLL ↓
+    <h1>
+        PAPER
+        <span>PROD.</span>
+    </h1>
+
+    <div class="scroll">
+        SCROLL TO ENTER
     </div>
 
 </section>
 
 
-<!-- ==============================================
-     MARQUEE
-================================================ -->
+<!-- ================= MARQUEE ================= -->
 
 <div class="marquee">
 
     <div class="marquee-track">
 
         <span>PAPER PRODUCTIONS</span>
-
         <span>TO THE WORLD</span>
-
         <span>PAPER PROD 2 TW</span>
-
         <span>FROM IDEA TO REALITY</span>
 
         <span>PAPER PRODUCTIONS</span>
-
         <span>TO THE WORLD</span>
-
         <span>PAPER PROD 2 TW</span>
-
         <span>FROM IDEA TO REALITY</span>
 
     </div>
@@ -933,575 +436,145 @@ footer {
 </div>
 
 
-<!-- ==============================================
-     MANIFESTO
-================================================ -->
+<!-- ================= MANIFESTO ================= -->
 
 <section class="manifesto">
 
-    <div class="reveal">
-
-        <div class="section-number">
-            001 — MANIFESTO
-        </div>
-
-        <div class="manifesto-text">
-
-            WE DIDN'T
-
-            <span class="dim">BUILD</span>
-
-            A BRAND.
-
-            <br>
-
-            <span class="dim">WE BUILT</span>
-
-            A WORLD.
-
-        </div>
-
-    </div>
+    <h2>
+        WE DIDN'T<br>
+        BUILD A<br>
+        <span>BRAND.</span><br>
+        WE BUILT<br>
+        A WORLD.
+    </h2>
 
 </section>
 
 
-<!-- ==============================================
-     WORLD
-================================================ -->
+<!-- ================= MAIN SECTIONS ================= -->
 
-<section id="world">
+<section class="sections">
 
-    <div class="reveal">
+
+    <!-- WORLD -->
+
+    <a href="world.html" class="section-card">
 
         <div class="section-number">
-            002 — THE WORLD
+            01 — ENTER THE WORLD
         </div>
 
-        <h2 class="section-title">
+        <div class="card-shape"></div>
 
-            MORE THAN<br>
-            CLOTHES.
+        <div>
+            <h2>
+                WORLD
+            </h2>
 
-        </h2>
+            <p>
+                Culture. People. Skating. Fashion.
+                Music. Art. Community.
+            </p>
+        </div>
 
-        <p class="world-description">
+        <div class="card-arrow">
+            ↗
+        </div>
 
-            Paper Productions is a creative world built around
-            people and ideas.
-
-            <br><br>
-
-            Clothing is only one piece.
-
-            Photography, skating, styling, music, artwork,
-            documenting and community all live here.
-
-        </p>
-
-    </div>
+    </a>
 
 
     <!-- PROJECTS -->
 
-    <div class="projects" id="projects">
-
-
-        <!-- PROJECT 001 -->
-
-        <div class="project large reveal">
-
-            <div class="image-placeholder">
-                IMAGE 001
-            </div>
-
-            <div class="project-info">
-
-                <div class="project-number">
-                    PP — 001
-                </div>
-
-                <div>
-
-                    <div class="project-name">
-                        CULTURE
-                    </div>
-
-                    <div class="project-category">
-                        Photography / Community
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- PROJECT 002 -->
-
-        <div class="project reveal">
-
-            <div class="image-placeholder">
-                IMAGE 002
-            </div>
-
-            <div class="project-info">
-
-                <div class="project-number">
-                    PP — 002
-                </div>
-
-                <div>
-
-                    <div class="project-name">
-                        MOTION
-                    </div>
-
-                    <div class="project-category">
-                        Skate / Movement
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- PROJECT 003 -->
-
-        <div class="project reveal">
-
-            <div class="image-placeholder">
-                IMAGE 003
-            </div>
-
-            <div class="project-info">
-
-                <div class="project-number">
-                    PP — 003
-                </div>
-
-                <div>
-
-                    <div class="project-name">
-                        PEOPLE
-                    </div>
-
-                    <div class="project-category">
-                        Portraits / Style
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- PROJECT 004 -->
-
-        <div class="project large reveal">
-
-            <div class="image-placeholder">
-                IMAGE 004
-            </div>
-
-            <div class="project-info">
-
-                <div class="project-number">
-                    PP — 004
-                </div>
-
-                <div>
-
-                    <div class="project-name">
-                        IDEAS
-                    </div>
-
-                    <div class="project-category">
-                        Art / Experiments
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- ==============================================
-     ARCHIVE
-================================================ -->
-
-<section class="archive" id="archive">
-
-    <div class="reveal">
+    <a href="projects.html" class="section-card">
 
         <div class="section-number">
-            003 — ARCHIVE
+            02 — THE WORK
         </div>
 
-        <h2 class="section-title">
+        <div class="card-shape"></div>
 
-            THE<br>
-            ARCHIVE.
+        <div>
+            <h2>
+                PROJECTS
+            </h2>
 
-        </h2>
-
-    </div>
-
-
-    <div class="archive-list">
-
-
-        <div class="archive-item reveal">
-
-            <div class="archive-number">
-                001
-            </div>
-
-            <div class="archive-name">
-                FIRST MOVEMENT
-            </div>
-
-            <div class="archive-type">
-                2026 / CULTURE
-            </div>
-
+            <p>
+                Ideas transformed into photography,
+                film, fashion, music and movement.
+            </p>
         </div>
 
-
-        <div class="archive-item reveal">
-
-            <div class="archive-number">
-                002
-            </div>
-
-            <div class="archive-name">
-                PAPER PEOPLE
-            </div>
-
-            <div class="archive-type">
-                2026 / PORTRAITS
-            </div>
-
+        <div class="card-arrow">
+            ↗
         </div>
 
-
-        <div class="archive-item reveal">
-
-            <div class="archive-number">
-                003
-            </div>
-
-            <div class="archive-name">
-                ON THE MOVE
-            </div>
-
-            <div class="archive-type">
-                2026 / SKATE
-            </div>
-
-        </div>
-
-
-        <div class="archive-item reveal">
-
-            <div class="archive-number">
-                004
-            </div>
-
-            <div class="archive-name">
-                TO THE WORLD
-            </div>
-
-            <div class="archive-type">
-                2026 / PROJECT
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- ==============================================
-     ABOUT
-================================================ -->
-
-<section id="about">
-
-    <div class="section-number reveal">
-        004 — ABOUT
-    </div>
-
-
-    <div class="about-grid">
-
-
-        <div class="about-large reveal">
-
-            PAPER IS THE IDEA.
-
-            <br><br>
-
-            PRODUCTION IS THE PROCESS.
-
-            <br><br>
-
-            THE WORLD IS THE RESULT.
-
-        </div>
-
-
-        <div class="about-small reveal">
-
-            Paper Productions exists to turn ideas
-            into something real.
-
-            <br><br>
-
-            A creative space for people to document,
-            create, experiment and build.
-
-            <br><br>
-
-            We don't want to simply sell a product.
-
-            <br><br>
-
-            We want to create culture.
-
-            <br><br>
-
-            <strong>
-                PAPER PROD 2 TW.
-            </strong>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- ==============================================
-     CONTACT
-================================================ -->
-
-<section class="contact" id="contact">
-
-    <div class="section-number reveal">
-        005 — CONTACT
-    </div>
-
-
-    <h2 class="contact-title reveal">
-
-        <span>TO THE</span>
-
-        <span>WORLD.</span>
-
-    </h2>
-
-
-    <!-- CHANGE EMAIL HERE -->
-
-    <a
-        class="contact-button reveal"
-        href="mailto:YOUR-EMAIL@example.com"
-    >
-        START SOMETHING →
     </a>
 
+
+    <!-- ARCHIVE -->
+
+    <a href="archive.html" class="section-card">
+
+        <div class="section-number">
+            03 — THE HISTORY
+        </div>
+
+        <div class="card-shape"></div>
+
+        <div>
+            <h2>
+                ARCHIVE
+            </h2>
+
+            <p>
+                Everything we've created,
+                experienced and left behind.
+            </p>
+        </div>
+
+        <div class="card-arrow">
+            ↗
+        </div>
+
+    </a>
+
+
 </section>
 
 
-<!-- ==============================================
-     FOOTER
-================================================ -->
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <h2>
+        FROM<br>
+        <span>PAPER</span><br>
+        TO THE<br>
+        WORLD.
+    </h2>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
     <div>
-        © 2026 PAPER PRODUCTIONS
+        PAPER PROD. 26
     </div>
-
-
-    <div class="socials">
-
-        <!-- Replace # with your actual links -->
-
-        <a href="#">
-            INSTAGRAM
-        </a>
-
-        <a href="#">
-            TIKTOK
-        </a>
-
-        <a href="#">
-            YOUTUBE
-        </a>
-
-    </div>
-
 
     <div>
-        PAPER PROD 2 TW
+        TO THE WORLD
+    </div>
+
+    <div>
+        2026
     </div>
 
 </footer>
 
-
-<!-- ==============================================
-     JAVASCRIPT
-================================================ -->
-
-<script>
-
-/* ==============================================
-   LOADER
-================================================ */
-
-window.addEventListener("load", function() {
-
-    const loader = document.getElementById("loader");
-
-    setTimeout(function() {
-
-        loader.classList.add("hide");
-
-    }, 1000);
-
-});
-
-
-/* ==============================================
-   SCROLL REVEAL
-================================================ */
-
-const elements =
-    document.querySelectorAll(".reveal");
-
-
-function revealOnScroll() {
-
-    elements.forEach(function(element) {
-
-        const position =
-            element.getBoundingClientRect().top;
-
-        const screenHeight =
-            window.innerHeight;
-
-        if (position < screenHeight - 80) {
-
-            element.classList.add("show");
-
-        }
-
-    });
-
-}
-
-
-window.addEventListener("scroll", revealOnScroll);
-
-window.addEventListener("load", revealOnScroll);
-
-
-/* ==============================================
-   MOUSE PARALLAX
-================================================ */
-
-const heroBackground =
-    document.querySelector(".hero-background");
-
-
-document.addEventListener("mousemove", function(event) {
-
-    if (!heroBackground) return;
-
-    const x =
-        (event.clientX / window.innerWidth - 0.5);
-
-    const y =
-        (event.clientY / window.innerHeight - 0.5);
-
-    heroBackground.style.transform =
-        "translate(" +
-        x * 30 +
-        "px, " +
-        y * 30 +
-        "px)";
-
-});
-
-
-/* ==============================================
-   PROJECT CLICK
-================================================ */
-
-const projects =
-    document.querySelectorAll(".project");
-
-
-projects.forEach(function(project) {
-
-    project.addEventListener("click", function() {
-
-        this.style.transform = "scale(.98)";
-
-        setTimeout(() => {
-
-            this.style.transform = "";
-
-        }, 200);
-
-    });
-
-});
-
-
-/* ==============================================
-   SMOOTH NAVIGATION
-================================================ */
-
-document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(function(link) {
-
-        link.addEventListener("click", function(event) {
-
-            const target =
-                document.querySelector(
-                    this.getAttribute("href")
-                );
-
-            if (!target) return;
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        });
-
-    });
-
-</script>
 
 </body>
 </html>
