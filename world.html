@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WORLD — PAPER PROD. 26</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    background:#050505;
+    color:#f5f5f5;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:25px 35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:100;
+    mix-blend-mode:difference;
+}
+
+.logo{
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.navlinks{
+    display:flex;
+    gap:28px;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.navlinks a{
+    transition:.3s;
+}
+
+.navlinks a:hover{
+    opacity:.4;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:40px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-bg{
+    position:absolute;
+    width:65vw;
+    height:65vw;
+    max-width:850px;
+    max-height:850px;
+    border:1px solid #333;
+    border-radius:50%;
+    right:-15%;
+    top:10%;
+    animation:spin 30s linear infinite;
+}
+
+.hero-bg:before,
+.hero-bg:after{
+    content:"";
+    position:absolute;
+    inset:12%;
+    border:1px solid #292929;
+    border-radius:50%;
+}
+
+.hero-bg:after{
+    inset:28%;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+.small{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(90px,18vw,280px);
+    line-height:.72;
+    letter-spacing:-12px;
+    text-transform:uppercase;
+    position:relative;
+    z-index:2;
+}
+
+.hero h1 span{
+    display:block;
+    margin-left:10vw;
+}
+
+.intro{
+    padding:150px 8vw;
+    border-top:1px solid #222;
+}
+
+.intro h2{
+    max-width:1000px;
+    font-size:clamp(40px,7vw,100px);
+    line-height:.95;
+    text-transform:uppercase;
+    letter-spacing:-5px;
+}
+
+.intro p{
+    max-width:600px;
+    margin-top:60px;
+    color:#999;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:2px;
+    background:#222;
+}
+
+.card{
+    min-height:500px;
+    background:#080808;
+    padding:35px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    overflow:hidden;
+    transition:.5s;
+}
+
+.card:hover{
+    background:#111;
+}
+
+.card-number{
+    font-size:12px;
+    color:#777;
+}
+
+.card h3{
+    font-size:clamp(45px,7vw,100px);
+    text-transform:uppercase;
+    letter-spacing:-5px;
+}
+
+.card p{
+    max-width:350px;
+    color:#888;
+    line-height:1.5;
+}
+
+.fake-image{
+    position:absolute;
+    inset:0;
+    opacity:.12;
+    background:
+      radial-gradient(circle at 70% 30%,#fff 0,transparent 25%),
+      linear-gradient(135deg,transparent 40%,#fff 40%,transparent 41%);
+    transform:scale(1);
+    transition:.7s;
+}
+
+.card:hover .fake-image{
+    transform:scale(1.15) rotate(4deg);
+    opacity:.2;
+}
+
+.manifesto{
+    min-height:80vh;
+    padding:150px 8vw;
+    display:flex;
+    align-items:center;
+}
+
+.manifesto h2{
+    font-size:clamp(50px,9vw,140px);
+    line-height:.85;
+    letter-spacing:-7px;
+    text-transform:uppercase;
+}
+
+.manifesto span{
+    color:#777;
+}
+
+footer{
+    border-top:1px solid #222;
+    padding:35px;
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#777;
+}
+
+@media(max-width:700px){
+    nav{padding:20px}
+    .navlinks{gap:10px;font-size:9px}
+    .hero{padding:25px}
+    .hero h1{letter-spacing:-7px}
+    .grid{grid-template-columns:1fr}
+    .card{min-height:400px}
+    footer{flex-direction:column;gap:20px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="logo">PAPER PROD. 26</a>
+
+    <div class="navlinks">
+        <a href="world.html">WORLD</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="archive.html">ARCHIVE</a>
+        <a href="index.html">HOME</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="small">PAPER PROD. — 02 / WORLD</div>
+
+    <h1>
+        OUR
+        <span>WORLD.</span>
+    </h1>
+</section>
+
+<section class="intro">
+    <h2>
+        MORE THAN<br>
+        CLOTHES.
+    </h2>
+
+    <p>
+        Paper Productions is a collection of culture, people, movement,
+        ideas and stories. From the streets to the studio, from paper
+        to reality — everything becomes part of the world.
+    </p>
+</section>
+
+<section class="grid">
+
+    <div class="card">
+        <div class="fake-image"></div>
+        <div class="card-number">01 — CULTURE</div>
+        <h3>CULTURE</h3>
+        <p>
+            The sounds, styles, places and ideas that shape us.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="fake-image"></div>
+        <div class="card-number">02 — MOTION</div>
+        <h3>MOTION</h3>
+        <p>
+            Skateboarding, movement, streets and everything in between.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="fake-image"></div>
+        <div class="card-number">03 — PEOPLE</div>
+        <h3>PEOPLE</h3>
+        <p>
+            Artists, skaters, creatives, friends and strangers with stories.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="fake-image"></div>
+        <div class="card-number">04 — IDEAS</div>
+        <h3>IDEAS</h3>
+        <p>
+            Concepts start on paper. Then we make them real.
+        </p>
+    </div>
+
+</section>
+
+<section class="manifesto">
+    <h2>
+        FROM<br>
+        <span>PAPER</span><br>
+        TO THE<br>
+        WORLD.
+    </h2>
+</section>
+
+<footer>
+    <div>PAPER PROD. 26</div>
+    <div>TO THE WORLD — 2026</div>
+</footer>
+
+</body>
+</html>
